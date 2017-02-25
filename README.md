@@ -9,32 +9,27 @@ Start using the library with including the namespace on your page like <pre><cod
 #### ListViewBase extensions
 
 Extend with an alternate row color brush
-<pre>
-	<code>
-&lt;ListView 
-	extend:ListViewBaseExtensions.AlternateRowColor="LightGray"&gt;
-&lt;/ListView&gt;
-	</code>
-</pre>
+``` xml
+<ListView
+	extend:ListViewBaseExtensions.AlternateRowColor="LightGray">
+</ListView>
+```
+<br/>
 
 Extend with a custom alternate itemtemplate
-<pre>
-	<code>
-&lt;ListView 
-	extend:ListViewBaseExtensions.AlternateRowItemTemplate="{StaticResource AlternateTemplate}"&gt;
-&lt;/ListView&gt;
-	</code>
-</pre>
+``` xml
+<ListView
+	extend:ListViewBaseExtensions.AlternateRowItemTemplate="{StaticResource AlternateTemplate}">
+</ListView>
+```
+<br/>
 
 Extend with a controltemplate when your bound items are count zero
-<pre>
-	<code>
-&lt;ListView 
-	extend:ListViewBaseExtensions.EmptyDataControlTemplate="{StaticResource EmptyTemplate}"&gt;
-&lt;/ListView&gt;
-	</code>
-</pre>
-
+``` xml
+<ListView
+	extend:ListViewBaseExtensions.EmptyDataControlTemplate="{StaticResource EmptyTemplate}">
+</ListView>
+```
 <br/>
 
 #### UIElement extensions
@@ -43,14 +38,10 @@ Extend a UIElement with the accesskey hint. When you've set the AccessKey on a c
 For more information on the AccessHint property you can go to [Microsoft docs](https://docs.microsoft.com/en-us/windows/uwp/input-and-devices/access-keys).
 Most of the sample code for the hint is used in this extension.
 
-<pre>
-	<code>
-&lt;Button
-	AccessKey="AR" 
-	extend:UIElementExtensions.ShowAccessKeyHint="True"&gt;
-&lt;/Button&gt;
-	</code>
-</pre>
-
-
+``` xml
+<Button
+	AccessKey="AR"
+	extend:UIElementExtensions.ShowAccessKeyHint="True">
+</Button>
+```
 
