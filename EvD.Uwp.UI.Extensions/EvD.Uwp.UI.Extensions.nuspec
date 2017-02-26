@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Edwin van Driel</authors>
+    <owners>edwinvandriel</owners>
+    <projectUrl>https://github.com/edwinvandriel/UWP-UI-Extensions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Extend your UWP controls with productive lightweight extensions.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright 2017 by Edwin van Driel</copyright>
+    <tags>UWP UI control extensions</tags>
+  </metadata>
+</package>
