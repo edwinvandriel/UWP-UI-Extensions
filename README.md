@@ -6,6 +6,16 @@ Start using the library with including the namespace on your page like <pre><cod
 
 <br/>
 
+#### ItemsControl extensions
+
+Extend with a controltemplate when your bound items are count zero
+``` xml
+<ListView
+	extend:ItemsControlExtensions.EmptyDataControlTemplate="{StaticResource EmptyTemplate}">
+</ListView>
+```
+<br/>
+
 #### ListViewBase extensions
 
 Extend with an alternate row color brush
@@ -20,14 +30,6 @@ Extend with a custom alternate itemtemplate
 ``` xml
 <ListView
 	extend:ListViewBaseExtensions.AlternateRowItemTemplate="{StaticResource AlternateTemplate}">
-</ListView>
-```
-<br/>
-
-Extend with a controltemplate when your bound items are count zero
-``` xml
-<ListView
-	extend:ListViewBaseExtensions.EmptyDataControlTemplate="{StaticResource EmptyTemplate}">
 </ListView>
 ```
 <br/>

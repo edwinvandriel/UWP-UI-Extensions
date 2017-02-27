@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemsControlExtensions.cs" />
     <Compile Include="ListViewBaseExtensions.cs" />
     <Compile Include="UIElementExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

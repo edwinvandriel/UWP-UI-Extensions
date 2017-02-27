@@ -41,7 +41,7 @@
             ItemTemplate="{StaticResource NormalTemplate}"
             extend:ListViewBaseExtensions.AlternateRowColor="LightGray"
             extend:ListViewBaseExtensions.AlternateRowItemTemplate="{StaticResource AlternateTemplate}"
-            extend:ListViewBaseExtensions.EmptyDataControlTemplate="{StaticResource EmptyTemplate}">
+            extend:ItemsControlExtensions.EmptyDataControlTemplate="{StaticResource EmptyTemplate}">
         </ListView>
 
         <ListView 
@@ -52,7 +52,7 @@
             ItemTemplate="{StaticResource NormalTemplate}"
             extend:ListViewBaseExtensions.AlternateRowColor="LightGray"
             extend:ListViewBaseExtensions.AlternateRowItemTemplate="{StaticResource AlternateTemplate}"
-            extend:ListViewBaseExtensions.EmptyDataControlTemplate="{StaticResource EmptyTemplate}">
+            extend:ItemsControlExtensions.EmptyDataControlTemplate="{StaticResource EmptyTemplate}">
         </ListView>
 
         <Grid 

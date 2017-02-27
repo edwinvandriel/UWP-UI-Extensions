@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
@@ -130,103 +128,6 @@ namespace EvD.Uwp.UI.Extensions
             else
             {
                 itemContainer.ContentTemplate = sender.ItemTemplate;
-            }
-        }
-        #endregion
-
-        #region EmptyDataControlTemplate
-        private static Dictionary<int, ControlTemplate> _originalTemplates = new Dictionary<int, ControlTemplate>();
-
-        /// <summary>
-        /// Attached <see cref="DependencyProperty"/> for binding a <see cref="DataTemplate"/> as an alternate row template to a <see cref="ListViewBase"/>
-        /// </summary>
-        public static readonly DependencyProperty EmptyDataControlTemplateProperty = DependencyProperty.RegisterAttached(
-            "EmptyDataControlTemplate",
-            typeof(ControlTemplate),
-            typeof(ListViewBaseExtensions),
-            new PropertyMetadata(null, OnEmptyDataControlTemplatePropertyChanged));
-
-        /// <summary>
-        /// Gets the <see cref="ControlTemplate"/> associated with the specified <see cref="ListViewBase"/>
-        /// </summary>
-        /// <param name="obj">The <see cref="ListViewBase"/> to get the associated <see cref="ControlTemplate"/> from</param>
-        /// <returns>The <see cref="ControlTemplate"/> associated with the <see cref="ListViewBase"/></returns>
-        public static ControlTemplate GetEmptyDataControlTemplate(ListViewBase obj)
-        {
-            return (ControlTemplate)obj.GetValue(EmptyDataControlTemplateProperty);
-        }
-
-        /// <summary>
-        /// Sets the <see cref="ControlTemplate"/> associated with the specified <see cref="ListViewBase"/>
-        /// </summary>
-        /// <param name="obj">The <see cref="ListViewBase"/> to associate the <see cref="ControlTemplate"/> with</param>
-        /// <param name="value">The <see cref="ControlTemplate"/> for binding to the <see cref="ListViewBase"/></param>
-        public static void SetEmptyDataControlTemplate(ListViewBase obj, ControlTemplate value)
-        {
-            obj.SetValue(EmptyDataControlTemplateProperty, value);
-        }
-
-        private static void OnEmptyDataControlTemplatePropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
-        {
-            ListViewBase listViewBase = sender as ListViewBase;
-
-            if (listViewBase == null)
-            {
-                return;
-            }
-
-            if (EmptyDataControlTemplateProperty != null)
-            {
-                var listViewIdentifier = listViewBase.GetHashCode();
-
-                listViewBase.Items.VectorChanged += (s, e) =>
-                {
-                    if (_originalTemplates.ContainsKey(listViewIdentifier) == false)
-                    {
-                        _originalTemplates.Add(listViewIdentifier, listViewBase.Template);
-                    }
-
-                    SetProperTemplate(listViewBase, s.Count, e.CollectionChange);
-                };
-            }
-        }
-
-        private static void SetProperTemplate(ListViewBase listViewBase, int count, CollectionChange collectionChange = CollectionChange.Reset)
-        {
-            if (count == 0)
-            {
-                SetEmptyDataTemplate(listViewBase);
-            }
-            else
-            {
-                SetOriginalControlTemplate(listViewBase, collectionChange);
-            }
-        }
-
-        private static void SetEmptyDataTemplate(ListViewBase listViewBase)
-        {
-            var emptyTemplate = GetEmptyDataControlTemplate(listViewBase);
-
-            if (listViewBase.Template == emptyTemplate)
-            {
-                return;
-            }
-
-            listViewBase.Template = emptyTemplate;
-        }
-
-        private static void SetOriginalControlTemplate(ListViewBase listViewBase, CollectionChange collectionChange)
-        {
-            var listViewIdentifier = listViewBase.GetHashCode();
-
-            if (_originalTemplates.ContainsKey(listViewIdentifier) == false)
-            {
-                return;
-            }
-
-            if (collectionChange != CollectionChange.Reset && listViewBase.Template != _originalTemplates[listViewIdentifier])
-            {
-                listViewBase.Template = _originalTemplates[listViewIdentifier];
             }
         }
         #endregion
